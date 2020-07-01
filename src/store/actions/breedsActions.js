@@ -7,13 +7,15 @@ export const getBreeds = () => async (dispatch) => {
   try {
     let response = await fetch("https://dog.ceo/api/breeds/list/all");
 
-    if (response.status !== 200) throw { message: "Something Went wrong!" };
+    if (response.status !== 200) throw new Error("Something Went wrong!");
 
     let data = await response.json();
 
     let breeds = Object.keys(data.message);
     dispatch(getBreedsAllImages(breeds, getBreedsImageUrls(breeds)));
   } catch (error) {
+    console.log(error);
+
     dispatch({
       type: SET_ERRORS,
       payload: error.message,
