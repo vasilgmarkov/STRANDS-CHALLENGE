@@ -10,7 +10,7 @@ class Card extends Component {
         <img src={logo} className="app-logo" alt="logo" />
         <div className="container">
           <h2>Top 10 breeds</h2>
-          <p>with most images in out DataBase</p>
+          <p>with most images in our DataBase</p>
           {errors ? <p className="app-error">{errors}</p> : <Chart />}
         </div>
       </div>
